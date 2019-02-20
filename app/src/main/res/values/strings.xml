@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SeekBar</string>
+    <string name="reset">Reset</string>
+    <string name="def_value">0</string>
 </resources>
