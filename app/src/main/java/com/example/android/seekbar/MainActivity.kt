@@ -1,9 +1,8 @@
 package com.example.android.seekbar
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,19 +13,18 @@ class MainActivity : AppCompatActivity() {
 
         val initialTextViewTranslationY = text_view_progress.translationY
 
-        seek_bar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+        seek_bar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
 
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
 
-                text_view_progress.setText(progress.toString())
+                text_view_progress.text = progress.toString()
 
                 val animstep = resources.getDimension(R.dimen.text_anim_step)
-                val translationDistance = (initialTextViewTranslationY +
-                        progress * animstep * -1)
+                val translationDistance = (initialTextViewTranslationY + progress * animstep * -1)
 
                 text_view_progress.animate().translationY(translationDistance)
 
-                if(!fromUser) {
+                if (!fromUser) {
                     text_view_progress
                         .animate()
                         .setDuration(500)
